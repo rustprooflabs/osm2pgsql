@@ -174,6 +174,8 @@ pg_result_t pg_conn_t::exec_prepared_internal(char const *stmt, int num_params,
                 concat_params(num_params, param_values));
     }
 
+    log_error("TEST ERROR MESSAGE -- This is not really an error");
+
     pg_result_t res{PQexecPrepared(m_conn.get(), stmt, num_params, param_values,
                                    param_lengths, param_formats,
                                    result_format)};
